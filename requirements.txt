@@ -150,3 +150,7 @@ tiktoken
 pdf2image
 python-docx
 seaborn
+qiskit
+qiskit-aer
+qiskit_machine_learning
+qiskit_optimization
