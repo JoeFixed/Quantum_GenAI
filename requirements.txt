@@ -154,5 +154,3 @@ qiskit
 qiskit-aer
 qiskit_machine_learning
 qiskit_optimization
-tesseract
-tesseract-ocr
