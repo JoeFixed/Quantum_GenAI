@@ -141,7 +141,7 @@ wasabi==1.1.2
 watchdog==3.0.0
 yarl==1.9.2
 zipp==3.16.2
-pytesseract
+pytesseract==0.3.10
 langchain==0.0.334
 pyvis
 spacy_streamlit
