@@ -1,0 +1,170 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 900px;
+                 height: 500px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+             #config {
+                 float: left;
+                 width: 400px;
+                 height: 600px;
+             }
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+            <div id="config"></div>
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#97c2fc", "id": "egyptian republic", "label": "egyptian republic", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "has released", "label": "has released", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "desires", "label": "desires", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "trusts", "label": "trusts", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "acknowledges", "label": "acknowledges", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "extends", "label": "extends", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "ethiopia", "label": "ethiopia", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "exploits", "label": "exploits", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "assists", "label": "assists", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "egyptian embassy in chicago", "label": "egyptian embassy in chicago", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "has outlined", "label": "has outlined", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "all travelers from all countries", "label": "all travelers from all countries", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "must undergo", "label": "must undergo", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "must be transported", "label": "must be transported", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "must confirm and review", "label": "must confirm and review", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "must ensure", "label": "must ensure", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "those who do not exceed the specified six-year period", "label": "those who do not exceed the specified six-year period", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "can head to", "label": "can head to", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "with the exception of", "label": "with the exception of", "shape": "dot", "size": 10}]);
+                  edges = new vis.DataSet([{"from": "egyptian republic", "label": "statement", "title": "statement", "to": "has released", "width": 1}, {"from": "egyptian republic", "label": "impartial investigation", "title": "impartial investigation", "to": "desires", "width": 1}, {"from": "egyptian republic", "label": "Saudi investigative authorities", "title": "Saudi investigative authorities", "to": "trusts", "width": 1}, {"from": "egyptian republic", "label": "importance of Police Day Celebrations", "title": "importance of Police Day Celebrations", "to": "acknowledges", "width": 1}, {"from": "egyptian republic", "label": "greetings to members of the Egyptian community in the Midwest", "title": "greetings to members of the Egyptian community in the Midwest", "to": "extends", "width": 1}, {"from": "ethiopia", "label": "transboundary resources", "title": "transboundary resources", "to": "exploits", "width": 1}, {"from": "ethiopia", "label": "Congo", "title": "Congo", "to": "assists", "width": 1}, {"from": "egyptian embassy in chicago", "label": "procedures and requirements for arriving and traveling to Egypt", "title": "procedures and requirements for arriving and traveling to Egypt", "to": "has outlined", "width": 1}, {"from": "all travelers from all countries", "label": "screening", "title": "screening", "to": "must undergo", "width": 1}, {"from": "all travelers from all countries", "label": "passengers in oil transport for regular or private flights", "title": "passengers in oil transport for regular or private flights", "to": "must be transported", "width": 1}, {"from": "all travelers from all countries", "label": "negative test result", "title": "negative test result", "to": "must confirm and review", "width": 1}, {"from": "all travelers from all countries", "label": "they do not exceed the specified date", "title": "they do not exceed the specified date", "to": "must ensure", "width": 1}, {"from": "those who do not exceed the specified six-year period", "label": "Egypt", "title": "Egypt", "to": "can head to", "width": 1}, {"from": "those who do not exceed the specified six-year period", "label": "Castle Alto", "title": "Castle Alto", "to": "with the exception of", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": true,
+        "filter": [
+            "physics"
+        ]
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+                  // if this network requires displaying the configure window,
+                  // put it in its div
+                  options.configure["container"] = document.getElementById("config");
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
