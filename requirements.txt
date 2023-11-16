@@ -142,10 +142,11 @@ watchdog==3.0.0
 yarl==1.9.2
 zipp==3.16.2
 pytesseract
-langchain
+langchain==0.0.334
 pyvis
 spacy_streamlit
 SentencePiece
 tiktoken
 pdf2image
 python-docx
+seaborn
