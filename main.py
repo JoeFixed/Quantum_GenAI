@@ -42,7 +42,7 @@ def main():
     ) = load_translation_models()
     # Center the logo at the top of the main page
     st.image(
-        "/home/smartcoach/ashry/mfa/imgs/quantumpnggreen_t.png",
+        "imgs/quantumpnggreen_t.png",
         width=10,
         use_column_width="always",
     )
@@ -59,7 +59,7 @@ def main():
     with st.sidebar.container():
         # Test with a different local image or an online image URL
         st.image(
-            "/home/smartcoach/ashry/mfa/imgs/rsz_docunify.png", width=10, use_column_width=True
+            "imgs/rsz_docunify.png", width=10, use_column_width=True
         )
 
     menu = ["Home", "About"]
