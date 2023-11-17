@@ -33,11 +33,7 @@ quantum_df = pd.DataFrame()
 
 theme_config_path = "config.toml" 
 theme_config = toml.load(theme_config_path)
-st.set_page_config(
-    page_title="Quantum_GenAI",
-    page_icon="📊",  
-    layout="centered",
-)
+
   
 st.markdown(f"""
     [theme]
