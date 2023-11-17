@@ -117,7 +117,7 @@ spacy==3.7.2
 spacy-legacy==3.0.12
 spacy-loggers==1.0.5
 spacy-streamlit==1.0.6
-en-core-web-sm==3.7.1
+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.0.0/en_core_web_sm-3.0.0.tar.gz#egg=en_core_web_sm
 SQLAlchemy==2.0.23
 srsly==2.4.8
 stack-data==0.6.3
