@@ -151,7 +151,7 @@ def main():
                 en_summary_result = summarizer.perform_summarization(translated_doc)
 
                 ar_summary_result = perform_translation(
-                    summary_result, model_en_ar, tokenizer_en_ar
+                    en_summary_result, model_en_ar, tokenizer_en_ar
                 )
                 st.success(ar_summary_result)
                 #############################################################
