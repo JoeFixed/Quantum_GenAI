@@ -239,7 +239,7 @@ def main():
                 analytics_text = GPTFunction(rec_translated_doc, prompt_topicModeling)
                 st.write(analytics_text)
                 translated_recommendation = summarizer.perform_summarization(
-                    translated_doc
+                    analytics_text
                 )
                 translated_recommendation = perform_translation(
                     translated_recommendation, model_en_ar, tokenizer_en_ar
@@ -249,7 +249,7 @@ def main():
                 st.text("========\n")
               #  QML_Classification(quantum_df)
                 quantum_prediction = perform_mapping(en_summary_result)
-                st.subheader("(Quantum Prediction Output (Quantum SVM))")
+                st.subheader("Quantum Prediction Output (Quantum SVM)")
                 st.write(quantum_prediction)
 
 if __name__ == "__main__":
