@@ -31,25 +31,29 @@ settings = Settings()
 ALLOWED_EXTENSIONS = ("png", "jpg", "jpeg", "pdf", "docx", "txt")
 quantum_df = pd.DataFrame()
 
-theme_config_path = "config.toml" 
+theme_config_path = "config.toml"
 theme_config = toml.load(theme_config_path)
 
-  
-st.markdown(f"""
+
+
+
+@st.cache_resource(hash_funcs={torch.nn.parameter.Parameter: lambda _: None})
+def load_models():
+    return load_translation_models()
+
+
+def main():
+    st.markdown(
+        f"""
     [theme]
     primaryColor="{theme_config['theme']['primaryColor']}"
     backgroundColor="{theme_config['theme']['backgroundColor']}"
     secondaryBackgroundColor="{theme_config['theme']['secondaryBackgroundColor']}"
     textColor="{theme_config['theme']['textColor']}"
     font="{theme_config['theme']['font']}"
-""", unsafe_allow_html=True)
-
-@st.cache_resource(hash_funcs={torch.nn.parameter.Parameter: lambda _: None})
-def load_models():
-   return load_translation_models()
-
-
-def main():
+        """,
+        unsafe_allow_html=True,
+    )
     # Load translation models
     (
         model_ar_en,
@@ -75,9 +79,7 @@ def main():
     # )
     with st.sidebar.container():
         # Test with a different local image or an online image URL
-        st.image(
-            "imgs/rsz_docunify.png", width=10, use_column_width=True
-        )
+        st.image("imgs/rsz_docunify.png", width=10, use_column_width=True)
 
     menu = ["Home", "About"]
     choice = st.sidebar.selectbox("Menu", menu)
@@ -243,7 +245,7 @@ def main():
 
                 GraphText = arabic_text  # replace with your actual data
                 create_graph_network_new_approach1(
-                    GraphText, model_en_ar,tokenizer_en_ar
+                    GraphText, model_en_ar, tokenizer_en_ar
                 )  # Assuming your new function takes a text input
                 # Generating ChatGPT Report in Arabic and English
                 st.subheader(
@@ -261,7 +263,8 @@ def main():
                 st.subheader("(Generative AI)تقرير تحليلي مع توصيات  مبنية باستخدام")
                 st.write(translated_recommendation)
                 st.text("========\n")
-              #  QML_Classification(quantum_df)
+            #  QML_Classification(quantum_df)
+
 
 if __name__ == "__main__":
     main()
