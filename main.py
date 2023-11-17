@@ -21,7 +21,6 @@ import tempfile
 from pdf2image import convert_from_path
 import pytesseract
 import torch
-from quantum import perform_mapping
 
 from docx import Document
 
@@ -149,12 +148,12 @@ def main():
                 summarizer = SummarizationUtils()
 
                 # Generate the summary
-                en_summary_result = summarizer.perform_summarization(translated_doc)
+                summary_result = summarizer.perform_summarization(translated_doc)
 
-                ar_summary_result = perform_translation(
+                summary_result = perform_translation(
                     summary_result, model_en_ar, tokenizer_en_ar
                 )
-                st.success(ar_summary_result)
+                st.success(summary_result)
                 #############################################################
                 # Save similarity output in separate container
             with st.container():
@@ -249,9 +248,6 @@ def main():
                 st.write(translated_recommendation)
                 st.text("========\n")
               #  QML_Classification(quantum_df)
-                quantum_prediction = perform_mapping(en_summary_result)
-                st.subheader("(Quantum Prediction Output (Quantum SVM))")
-                st.write(quantum_prediction)
 
 if __name__ == "__main__":
     main()
