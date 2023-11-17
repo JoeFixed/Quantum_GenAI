@@ -47,7 +47,7 @@ def main():
     ) = load_models()
     # Center the logo at the top of the main page
     st.image(
-        "imgs/quantumpnggreen_t.png",
+        "imgs/Quantum_design5.png",
         width=10,
         use_column_width="always",
     )
