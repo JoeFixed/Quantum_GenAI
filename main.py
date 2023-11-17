@@ -21,7 +21,7 @@ import tempfile
 from pdf2image import convert_from_path
 import pytesseract
 import torch
-
+import toml
 from docx import Document
 
 
@@ -31,6 +31,22 @@ settings = Settings()
 ALLOWED_EXTENSIONS = ("png", "jpg", "jpeg", "pdf", "docx", "txt")
 quantum_df = pd.DataFrame()
 
+theme_config_path = "theme_config.toml" 
+theme_config = toml.load(theme_config_path)
+st.set_page_config(
+    page_title="Quantum_GenAI",
+    page_icon="📊",  
+    layout="centered",
+)
+  
+st.markdown(f"""
+    [theme]
+    primaryColor="{theme_config['theme']['primaryColor']}"
+    backgroundColor="{theme_config['theme']['backgroundColor']}"
+    secondaryBackgroundColor="{theme_config['theme']['secondaryBackgroundColor']}"
+    textColor="{theme_config['theme']['textColor']}"
+    font="{theme_config['theme']['font']}"
+""", unsafe_allow_html=True)
 
 @st.cache_resource(hash_funcs={torch.nn.parameter.Parameter: lambda _: None})
 def load_models():
