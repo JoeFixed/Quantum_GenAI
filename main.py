@@ -31,7 +31,7 @@ settings = Settings()
 ALLOWED_EXTENSIONS = ("png", "jpg", "jpeg", "pdf", "docx", "txt")
 quantum_df = pd.DataFrame()
 
-theme_config_path = "theme_config.toml" 
+theme_config_path = "config.toml" 
 theme_config = toml.load(theme_config_path)
 st.set_page_config(
     page_title="Quantum_GenAI",
