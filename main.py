@@ -35,7 +35,7 @@ quantum_df = pd.DataFrame()
 
 @st.cache_resource(hash_funcs={torch.nn.parameter.Parameter: lambda _: None})
 def load_models():
-   return load_translation_models()
+    return load_translation_models()
 
 
 def main():
@@ -64,9 +64,7 @@ def main():
     # )
     with st.sidebar.container():
         # Test with a different local image or an online image URL
-        st.image(
-            "imgs/rsz_docunify.png", width=10, use_column_width=True
-        )
+        st.image("imgs/rsz_docunify.png", width=10, use_column_width=True)
 
     menu = ["Home", "About"]
     choice = st.sidebar.selectbox("Menu", menu)
@@ -232,7 +230,7 @@ def main():
 
                 GraphText = arabic_text  # replace with your actual data
                 create_graph_network_new_approach1(
-                    GraphText, model_en_ar,tokenizer_en_ar
+                    GraphText, model_en_ar, tokenizer_en_ar
                 )  # Assuming your new function takes a text input
                 # Generating ChatGPT Report in Arabic and English
                 st.subheader(
