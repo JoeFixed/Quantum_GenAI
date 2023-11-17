@@ -31,9 +31,6 @@ settings = Settings()
 ALLOWED_EXTENSIONS = ("png", "jpg", "jpeg", "pdf", "docx", "txt")
 quantum_df = pd.DataFrame()
 
-theme_config_path = "config.toml"
-theme_config = toml.load(theme_config_path)
-
 
 @st.cache_resource(hash_funcs={torch.nn.parameter.Parameter: lambda _: None})
 def load_models():
@@ -41,12 +38,6 @@ def load_models():
 
 
 def main():
-    st.set_page_config(
-        page_title="Quantum GenAI",
-        page_icon="📊",
-        layout="wide",
-        **theme_config["theme"]
-    )
     # Load translation models
     (
         model_ar_en,
