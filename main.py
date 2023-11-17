@@ -35,24 +35,17 @@ theme_config_path = "config.toml"
 theme_config = toml.load(theme_config_path)
 
 
-
-
 @st.cache_resource(hash_funcs={torch.nn.parameter.Parameter: lambda _: None})
 def load_models():
     return load_translation_models()
 
 
 def main():
-    st.markdown(
-        f"""
-    [theme]
-    primaryColor="{theme_config['theme']['primaryColor']}"
-    backgroundColor="{theme_config['theme']['backgroundColor']}"
-    secondaryBackgroundColor="{theme_config['theme']['secondaryBackgroundColor']}"
-    textColor="{theme_config['theme']['textColor']}"
-    font="{theme_config['theme']['font']}"
-        """,
-        unsafe_allow_html=True,
+    st.set_page_config(
+        page_title="Quantum GenAI",
+        page_icon="📊",
+        layout="wide",
+        **theme_config["theme"]
     )
     # Load translation models
     (
