@@ -6,21 +6,21 @@ from utils.summarization_utils import SummarizationUtils
 from components.similarity_component import sentences_similartity
 from utils.ner_utils import (
     ner_spacy,
-    load_ner_model,
+  
     extract_entities_from_text,
     prioritize_entities,
-    # QML_Classification
+   
 )
 from utils.graph import create_graph_network_new_approach1
 from utils.gpt import GPTFunction
 from spacy_streamlit import visualize_ner
 from PIL import Image
 import pandas as pd
-from config import Settings
 import tempfile
 from pdf2image import convert_from_path
 import pytesseract
 import torch
+from quantum import perform_mapping
 
 from docx import Document
 
@@ -148,12 +148,12 @@ def main():
                 summarizer = SummarizationUtils()
 
                 # Generate the summary
-                summary_result = summarizer.perform_summarization(translated_doc)
+                en_summary_result = summarizer.perform_summarization(translated_doc)
 
-                summary_result = perform_translation(
+                ar_summary_result = perform_translation(
                     summary_result, model_en_ar, tokenizer_en_ar
                 )
-                st.success(summary_result)
+                st.success(ar_summary_result)
                 #############################################################
                 # Save similarity output in separate container
             with st.container():
@@ -248,6 +248,9 @@ def main():
                 st.write(translated_recommendation)
                 st.text("========\n")
               #  QML_Classification(quantum_df)
+                quantum_prediction = perform_mapping(en_summary_result)
+                st.subheader("(Quantum Prediction Output (Quantum SVM))")
+                st.write(quantum_prediction)
 
 if __name__ == "__main__":
     main()
