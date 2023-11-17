@@ -1,10 +1,13 @@
 import openai as ai
 from config import Settings
+from openai import OpenAI
+
 
 settings = Settings()
 def GPTFunction(document_content,prompt):
     # Replace YOUR_API_KEY with your OpenAI API key
-    ai.api_key = settings.GPT_API_KEY
+    client = OpenAI(api_key=settings.GPT_API_KEY)
+    
 
     model_engine = "text-davinci-003"
     #print(prompt)
@@ -14,8 +17,8 @@ def GPTFunction(document_content,prompt):
     max_tokens = 1024
 
     # Generate a response
-    completion = ai.Completion.create(
-        engine=model_engine,
+    completion = client.completions.create(
+        model=model_engine,
         prompt=prompt,
         max_tokens=max_tokens,
         temperature=0.5,

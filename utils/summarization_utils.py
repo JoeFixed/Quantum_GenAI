@@ -6,10 +6,11 @@ from langchain.chains import LLMChain
 from config import Settings
 
 
+
 class SummarizationUtils:
-    def __init__(self):
-        self.summerizer_model = BartForConditionalGeneration.from_pretrained("facebook/bart-large-cnn")
-        self.summerizer_tokenizer = BartTokenizer.from_pretrained("facebook/bart-large-cnn")
+    # def __init__(self):
+        # self.summerizer_model = BartForConditionalGeneration.from_pretrained("facebook/bart-large-cnn")
+        # self.summerizer_tokenizer = BartTokenizer.from_pretrained("facebook/bart-large-cnn")
 
     # def perform_summarization(self, text):
     #     input_ids = self.summerizer_tokenizer.encode(text, truncation=True, max_length=1024, return_tensors="pt")

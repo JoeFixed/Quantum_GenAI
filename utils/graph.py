@@ -6,20 +6,19 @@ import streamlit as st
 from pyvis.network import Network
 from utils.translation_utils import perform_translation, load_translation_models
 from config import Settings
-# TODO: Replace with your actual API key
 API_KEY = Settings().GPT_API_KEY
 openai.api_key = API_KEY
 
 
-(
-    model_ar_en,
-    tokenizer_ar_en,
-    model_en_ar,
-    tokenizer_en_ar,
-) = load_translation_models()
+# (
+#     model_ar_en,
+#     tokenizer_ar_en,
+#     model_en_ar,
+#     tokenizer_en_ar,
+# ) = load_translation_models()
 
 
-def create_graph_network_new_approach1(context):
+def create_graph_network_new_approach1(context, model_en_ar,tokenizer_en_ar):
     def plot_graph(kg):
         G = nx.DiGraph()
         if len(kg) > 2:
@@ -45,6 +44,8 @@ def create_graph_network_new_approach1(context):
 
             # Display the pyvis graph in Streamlit
             st.components.v1.html(open(html_file_path, "r").read(), height=800)
+        else:
+            pass
 
     def strict_output(
         system_prompt,
@@ -61,7 +62,7 @@ def create_graph_network_new_approach1(context):
         for i in range(num_tries):
             output_format_prompt = f"\nYou are to output the following in json format: {output_format}. Do not put quotation marks or escape character \\ in the output fields."
 
-            response = openai.ChatCompletion.create(
+            response = openai.chat.completions.create(
                 temperature=temperature,
                 model=model,
                 messages=[
@@ -72,7 +73,7 @@ def create_graph_network_new_approach1(context):
                     {"role": "user", "content": str(user_prompt)},
                 ],
             )
-            res = response["choices"][0]["message"]["content"].replace("'", '"')
+            res = response.choices[0].message.content.replace("'", '"')
             res = re.sub(r"(\w)\"(\w)", r"\1'\2", res)
             try:
                 output = json.loads(res)
@@ -98,6 +99,10 @@ def create_graph_network_new_approach1(context):
             "Knowledge Graph": "List of relations of the form [object_1, relation, object_2]"
         },
     )
-    kg = res[0]["Knowledge Graph"]  # Extract the knowledge graph from the response
+    if res and "Knowledge Graph" in res[0]:
+        kg = res[0]["Knowledge Graph"]
+        plot_graph(kg)  # Plot the knowledge graph
+    else:
+        print("The response doesn't contain a 'Knowledge Graph' property.")
 
-    plot_graph(kg)  # Plot the knowledge graph
+    

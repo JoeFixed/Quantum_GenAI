@@ -9,18 +9,18 @@ from utils.ner_utils import (
     load_ner_model,
     extract_entities_from_text,
     prioritize_entities,
-    QML_Classification
+    # QML_Classification
 )
 from utils.graph import create_graph_network_new_approach1
 from utils.gpt import GPTFunction
 from spacy_streamlit import visualize_ner
 from PIL import Image
 import pandas as pd
-import matplotlib.pyplot as plt
 from config import Settings
 import tempfile
 from pdf2image import convert_from_path
 import pytesseract
+import torch
 
 from docx import Document
 
@@ -32,6 +32,11 @@ ALLOWED_EXTENSIONS = ("png", "jpg", "jpeg", "pdf", "docx", "txt")
 quantum_df = pd.DataFrame()
 
 
+@st.cache_resource(hash_funcs={torch.nn.parameter.Parameter: lambda _: None})
+def load_models():
+   return load_translation_models()
+
+
 def main():
     # Load translation models
     (
@@ -39,7 +44,7 @@ def main():
         tokenizer_ar_en,
         model_en_ar,
         tokenizer_en_ar,
-    ) = load_translation_models()
+    ) = load_models()
     # Center the logo at the top of the main page
     st.image(
         "imgs/quantumpnggreen_t.png",
@@ -183,7 +188,7 @@ def main():
                 visualize_ner(doc)
 
                 # NER
-                model_NER, tokenizer_NER = load_ner_model()
+                # model_NER, tokenizer_NER = load_ner_model()
                 df_graph = extract_entities_from_text(arabic_text)
 
                 # Extract named entities from the 5 most similar documents and translating them to arabic
@@ -200,7 +205,7 @@ def main():
                     # prioritize_entities  will organize dataframe by the priority of the entity types
                 result_df = prioritize_entities(result_df)
                 st.write(result_df)
-                quantum_df = result_df
+                # quantum_df = result_df
 
                 # Display the DataFrame as a table in Streamlit
                 st.subheader("Knowledge Graph")
@@ -226,7 +231,7 @@ def main():
 
                 GraphText = arabic_text  # replace with your actual data
                 create_graph_network_new_approach1(
-                    GraphText
+                    GraphText, model_en_ar,tokenizer_en_ar
                 )  # Assuming your new function takes a text input
                 # Generating ChatGPT Report in Arabic and English
                 st.subheader(
