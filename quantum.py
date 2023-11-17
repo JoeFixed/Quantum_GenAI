@@ -22,7 +22,7 @@ def perform_mapping(text):
         # Create the template
         settings = Settings()
 
-        template_string = '''categorize the following text if it is 'Science' or 'Politics' or 'Information Technology' or 'Economics' or 'Culture' or 'Entertainment' or 'Media'):
+        template_string = '''categorize the following text if it is 'Science' or 'Politics' or 'Information Technology' or 'Economics' or 'Culture' or 'Entertainment' or 'Media' or 'sports'):
 
         Input Text:
         "{input_text}"
