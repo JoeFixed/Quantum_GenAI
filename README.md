@@ -7,7 +7,7 @@
 Quantum Gen AI (Enterprise Gen AI), is a cutting-edge solution meticulously crafted to handle unstructured data in diverse formats, catering to a wide range of practical applications. Below are its key functionalities:
 
 - It performs Optical Character Recognition (OCR) to extract text.
-- It generates text summarize.
+- It generates text summarization.
 - It retrieves the most similar documents from a database based on the document's topic.
 - It creates network graphs with named entity recognition.
 - It provides document recommendations.
@@ -50,7 +50,7 @@ Quantum Gen AI (Enterprise Gen AI), is a cutting-edge solution meticulously craf
 - Langchain / LamaIndex
 - Networkxx
 - Quantum Machine learning
-- Transormers (Hugging face)
+- Transformers (Hugging face)
 
 
     
@@ -80,6 +80,8 @@ To set up the project, follow these steps:
 
    ```bash
    streamlit run main.py
+   
+**PS:** Use python 3.8 to deploy on streamlit cloud
 
 ## Next Milestone
 
