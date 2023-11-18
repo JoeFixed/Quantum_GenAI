@@ -63,7 +63,7 @@ To set up the project, follow these steps:
 
    ```bash
    git clone <repository_URL>
-   cd MFA
+   
 
 2. Install the required Python packages by running:
     
