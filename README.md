@@ -4,7 +4,7 @@
 
 # Quantum Gen AI
 
-Quantum Gen AI is a solution intially designed to process documents in image format and harness unstructured data for practical applications. Here are its key functionalities:
+Quantum Gen AI (Enterprise Gen AI), is a cutting-edge solution meticulously crafted to handle unstructured data in diverse formats, catering to a wide range of practical applications. Below are its key functionalities:
 
 - It performs Optical Character Recognition (OCR) to extract text.
 - It generates text summarize.
@@ -80,3 +80,16 @@ To set up the project, follow these steps:
 
    ```bash
    streamlit run main.py
+
+## Next Milestone
+
+
+- Vector Database Implementation: Leverage vector databases to enhance the efficiency and accessibility of data storage and retrieval within the QuantumGen AI framework.
+
+- Utilizing Open Source Large Language Models: Integrate state-of-the-art large language models from open-source repositories to enrich the language understanding capabilities of QuantumGen AI.
+
+- Quantum Computing for Domain Prediction: Elevate prediction accuracy by transitioning from conventional simulators to actual quantum computers, unlocking the true potential of quantum processing for domain prediction.
+
+- Multilingual Support: Extend QuantumGen AI's capabilities to comprehend and process information across multiple languages, fostering a more inclusive and globally applicable solution.
+
+- Dashboard for Insightful Representations: Develop a user-friendly dashboard for visually representing and interpreting insights extracted by QuantumGen AI, facilitating intuitive comprehension of complex data patterns.
