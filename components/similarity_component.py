@@ -44,7 +44,7 @@ def sentences_similartity(doc1, doc2, translated_doc):
         result_df = sentences_similarity(df_docs, 'doc1', 'doc2', 'new_doc')
         print(result_df)
     """
-    df = pd.read_csv('./output.csv')
+    df = pd.read_csv('./data/output.csv')
     result = []
 
     df['new_doc'] = translated_doc

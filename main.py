@@ -20,7 +20,7 @@ import tempfile
 from pdf2image import convert_from_path
 import pytesseract
 import torch
-from prepare_quantum import perform_mapping
+from utils.prepare_quantum import perform_mapping
 
 from docx import Document
 

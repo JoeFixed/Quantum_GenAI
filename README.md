@@ -8,6 +8,19 @@ MFA is a tool designed to process documents in image format and harness unstruct
 - It creates network graphs with named entity recognition.
 - It provides document recommendations.
 
+    .
+    ├── data                    
+    │   ├── output.csv                 
+    ├── imgs            
+    ├── utiils         
+    ├── components
+         ├── ner_component  
+         ├── similarity_component
+    ├── main.py
+    ├── config.py
+    ├── requirements.txt
+    ├── requirements_quantum.txt
+    
 
 
 ## Installation
