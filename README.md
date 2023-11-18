@@ -1,11 +1,6 @@
 
 
-
-<img
-  src="imgs/Quantum_design5"
-  alt="Alt text"
-  title="Quantum Gen AI"
-  style="display: inline-block; margin: 0 auto; max-width: 300px">
+<img src="imgs/Quantum_design_cover.png" alt="Alt text" title="Optional title">
 
 # Quantum Gen AI
 
@@ -21,27 +16,29 @@ Quantum Gen AI is a solution intially designed to process documents in image for
         
 
 
-QuntumGenAi
-└───utils # source folder
-    │   ocr_utils.py
-    │   translation_utils.py
-    │   summarization_utils.py
-    │   ner_utils.py
-    │   graph_utils.py
-    │   gpt_utils.py
-    │   prepare_quantum.py
-    │   quantum.py
-└───compnents
-        │   ner_component.py
-        │   similarity.py    
-           
-└───data
-      output.csv
-├── main.py
-├── config.py
-├── requirements.txt
-├── requirements_quantum.txt
-└── README.md                
+      QuantumGenAi
+      ├─ utils
+      │  ├─ ocr_utils.py
+      │  ├─ translation_utils.py
+      │  ├─ summarization_utils.py
+      │  ├─ ner_utils.py
+      │  ├─ graph_utils.py
+      │  ├─ gpt_utils.py
+      │  ├─ prepare_quantum.py
+      │  └─ quantum.py
+      │
+      ├─ components
+      │  ├─ ner_component.py
+      │  └─ similarity.py
+      │
+      ├─ data
+      │  └─ output.csv
+      │
+      ├─ main.py
+      ├─ config.py
+      ├─ requirements.txt
+      ├─ requirements_quantum.txt
+      └─ README.md            
 
    
  ## Technolgies
