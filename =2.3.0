@@ -1,2 +1,0 @@
-Requirement already satisfied: pydantic in ./q_genai/lib/python3.8/site-packages (1.10.13)
-Requirement already satisfied: typing-extensions>=4.2.0 in ./q_genai/lib/python3.8/site-packages (from pydantic) (4.8.0)

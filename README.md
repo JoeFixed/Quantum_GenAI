@@ -25,7 +25,12 @@ To set up the project, follow these steps:
    ```bash
    pip install -r requirements.txt
 
-3. Run the application using Streamlit:
+3. Install the required Python packages by running:
+
+   ```bash
+    pip install -r requirements_quantum.txt
+
+4. Run the application using Streamlit:
 
    ```bash
    streamlit run main.py
