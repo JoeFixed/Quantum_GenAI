@@ -7,10 +7,11 @@
 Quantum Gen AI is a solution intially designed to process documents in image format and harness unstructured data for practical applications. Here are its key functionalities:
 
 - It performs Optical Character Recognition (OCR) to extract text.
-- It generates text summaries.
+- It generates text summarize.
 - It retrieves the most similar documents from a database based on the document's topic.
 - It creates network graphs with named entity recognition.
 - It provides document recommendations.
+- Provides the predicted domain using Quantum ML
 
 
         
