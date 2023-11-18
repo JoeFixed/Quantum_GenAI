@@ -2,7 +2,7 @@
 
 
 <img
-  src="imgs/Quantum_design_cover"
+  src="imgs/Quantum_design5"
   alt="Alt text"
   title="Quantum Gen AI"
   style="display: inline-block; margin: 0 auto; max-width: 300px">
