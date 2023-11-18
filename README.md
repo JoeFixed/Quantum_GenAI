@@ -2,7 +2,7 @@
 
 
 <img
-  src="/home/user/Desktop/QuatumHack/Quantum_GenAI/imgs/Quantum_design5.png"
+  src="Quantum_GenAI/imgs/Quantum_design5.png"
   alt="Alt text"
   title="Quantum Gen AI"
   style="display: inline-block; margin: 0 auto; max-width: 300px">
