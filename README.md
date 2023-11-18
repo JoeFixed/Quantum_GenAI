@@ -1,6 +1,12 @@
-# MFA
 
-MFA is a tool designed to process documents in image format and harness unstructured data for practical applications. Here are its key functionalities:
+
+
+<img src="/home/user/Desktop/QuatumHack/Quantum_GenAI/imgs/Quantum_design5.png" alt="Alt text" title="">
+
+
+# Quantum Gen AI
+
+Quantum Gen AI is a solution intially designed to process documents in image format and harness unstructured data for practical applications. Here are its key functionalities:
 
 - It performs Optical Character Recognition (OCR) to extract text.
 - It generates text summaries.
@@ -8,18 +14,46 @@ MFA is a tool designed to process documents in image format and harness unstruct
 - It creates network graphs with named entity recognition.
 - It provides document recommendations.
 
-    .
-    ├── data                    
-    │   ├── output.csv                 
-    ├── imgs            
-    ├── utiils         
-    ├── components
-         ├── ner_component  
-         ├── similarity_component
-    ├── main.py
-    ├── config.py
-    ├── requirements.txt
-    ├── requirements_quantum.txt
+
+        
+QuntumGenAi/
+├── utils/
+│   ├── ocr_utils.py
+│   ├── translation_utils.py
+│   ├── summarization_utils.py
+│   ├── ner_utils.py
+│   ├── graph_utils.py
+│   ├── gpt_utils.py
+    ├── prepare_quantum.py
+    ├── quantum.py
+
+│
+├── components/
+│   ├── __init__.py
+│   └── ner_component.py
+    └── similarity_component.py
+    
+│
+├── data/
+│   └── output.csv
+├── main.py
+├── config.py
+├── requirements.txt
+├── requirements_quantum.txt
+└── README.md
+
+   
+ ## Technolgies
+
+
+- OpenAI
+- Pytesseract 
+- Langchain / LamaIndex
+- Networkxx
+- Quantum Machine learning
+- Transormers (Hugging face)
+
+
     
 
 
